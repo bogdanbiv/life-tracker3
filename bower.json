@@ -1,0 +1,31 @@
+{
+  "name": "life-tracker3",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bogdanbiv/life-tracker3",
+  "authors": [
+    "Bogdan BIVOLARU <bogdan.bivolaru@gmail.com>"
+  ],
+  "description": "Quantified Life Tracker",
+  "main": "main.js",
+  "keywords": [
+    "calendar",
+    "planning",
+    "life_management"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "dijit": "~1.9.3",
+    "dojo-util": "~1.9.3",
+    "dojo": "~1.9.3",
+    "dojox": "~1.9.3"
+  }
+}
