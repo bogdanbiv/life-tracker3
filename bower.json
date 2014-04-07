@@ -26,6 +26,7 @@
     "dijit": "~1.9.3",
     "dojo-util": "~1.9.3",
     "dojo": "~1.9.3",
-    "dojox": "~1.9.3"
+    "dojox": "~1.9.3",
+    "dojo-calendar": "git://github.com/damiengarbarino/dojo-calendar#d5e456197f9af1dc048406128b7fcfbc90d8e050"
   }
 }
