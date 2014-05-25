@@ -1,14 +1,19 @@
-{
+﻿{
   "name": "dojo-intern-example",
   "description": "An example of using Dojo and Dijit with Intern",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "intern": "1.3.2",
-    "bower": "~1.2.8"
+    "bower": "~1.2.8",
+    "mongodb-store": "0.1.1"
+  },
+  "dependencies": {
+    "express": "3.4.0",
+    "jade": "*"
   },
   "scripts": {
     "postinstall": "bower install",
-    "test": "intern-runner config=tests/intern"
+    "test": "intern-runner config=tests/local.intern reporters=console"
   }
 }

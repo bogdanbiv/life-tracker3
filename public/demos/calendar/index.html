@@ -6,8 +6,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Calendar Sample: Desktop</title>				
 		<style type="text/css">
-			@import "../../components/dojox/calendar/themes/claro/Calendar.css";
-			@import "../../components/dojox/calendar/themes/claro/MonthColumnView.css";
+			@import "../../components/dojo-calendar/themes/claro/Calendar.css";
+			@import "../../components/dojo-calendar/themes/claro/MonthColumnView.css";
 			@import "demo.css";
 			@import "../../components/dojo/resources/dojo.css";
 			@import "../../components/dijit/themes/dijit.css";
@@ -29,16 +29,18 @@
                             location: "../../demos"
                         }, {
                             name: "dojox/calendar",
-                            location: "../../components/dojo-calendar/Calendar"
+                            location: "../../components/dojo-calendar"
                         }],
-                        map: {
+                        /*map: {
                             dojox: {
                                 calendar: "../../components/dojo-calendar/Calendar"
                             },
                             'dojox/calendar': "../../components/dojo-calendar/Calendar",
                             'demos/calendar': "../../demos"
+                        },*/
+                        paths: {
+                            "dojox/calendar": "../../components/dojo-calendar",
                         },
-                        cacheBust: true
                     };
                 </script>
 		<script type="text/javascript" src="../../components/dojo/dojo.js"></script>
