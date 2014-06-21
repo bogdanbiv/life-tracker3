@@ -6,7 +6,7 @@
     "Bogdan BIVOLARU <bogdan.bivolaru@gmail.com>"
   ],
   "description": "Quantified Life Tracker",
-  "main": "main.js",
+  "main": "api.js",
   "keywords": [
     "calendar",
     "planning",

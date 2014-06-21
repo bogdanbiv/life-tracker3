@@ -6,14 +6,27 @@
   "devDependencies": {
     "intern": "1.3.2",
     "bower": "~1.2.8",
-    "mongodb-store": "0.1.1"
+    "mongodb-store": "0.1.1",
+    "expect.js": "~0.3.1",
+    "mocha": "~1.18.2",
+    "superagent": "~0.17.0"
   },
   "dependencies": {
     "express": "3.4.0",
-    "jade": "*"
+    "jade": "*",
+    "mongoskin": "~1.4.1",
+    "express": "~4.1.1",
+    "body-parser": "~1.0.2"
   },
   "scripts": {
+    "start": "node express.js",
+    "test2": "mocha express.test.js",
     "postinstall": "bower install",
     "test": "intern-runner config=tests/local.intern reporters=console"
-  }
+  },
+    "author": "Azat Mardanov",
+    "license": "BSD-2-Clause",
+    "bugs": {
+        "url": "https://github.com/azat-co/rest-api-express/issues"
+    }
 }
