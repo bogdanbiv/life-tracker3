@@ -27,6 +27,7 @@ lcov.info
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
+release
 
 # Dependency directory
 # Deployed apps should consider commenting this line out:

@@ -8,26 +8,28 @@ define({
 	// A fully qualified URL to the Intern proxy
 	proxyUrl: 'http://localhost:9000/',
 
-	// Default desired capabilities for all environments. Individual capabilities can be overridden by any of the
-	// specified browser environments in the `environments` array below as well. See
-	// https://code.google.com/p/selenium/wiki/DesiredCapabilities for standard Selenium capabilities and
-	// https://saucelabs.com/docs/additional-config#desired-capabilities for Sauce Labs capabilities.
-	// Note that the `build` capability will be filled in with the current commit ID from the Travis CI environment
-	// automatically
-	capabilities: {
-		'selenium-version': '2.39.0'
-	},
+  // Default desired capabilities for all environments. Individual capabilities can be overridden by any of the
+  // specified browser environments in the `environments` array below as well. See
+  // https://code.google.com/p/selenium/wiki/DesiredCapabilities for standard Selenium capabilities and
+  // https://saucelabs.com/docs/additional-config#desired-capabilities for Sauce Labs capabilities.
+  // Note that the `build` capability will be filled in with the current commit ID from the Travis CI environment
+  // automatically
+  capabilities: {
+      'selenium-version': '2.39.0',
+      'idle-timeout': 30
+  },
 
 	// Browsers to run integration testing against. Note that version numbers must be strings if used with Sauce
 	// OnDemand. Options that will be permutated are browserName, version, platform, and platformVersion; any other
 	// capabilities options specified for an environment will be copied as-is
 	environments: [
-// 		{ browserName: 'internet explorer', version: '10', platform: 'Windows 8' },
+// 		{ browserName: 'internet explorer', version: '11', platform: 'Windows 8' },
+//		{ browserName: 'internet explorer', version: '10', platform: 'Windows 8' },
 // 		{ browserName: 'internet explorer', version: '9', platform: 'Windows 7' },
-// 		{ browserName: 'firefox', version: '23', platform: [ 'Linux', 'Windows 7' ] },
-// 		{ browserName: 'firefox', version: '21', platform: 'Mac 10.6' },
-		{ browserName: 'chrome', platform: [ 'LINUX', /*'Mac 10.8', 'Windows 7'*/ ] },
-		//{ browserName: 'safari', version: '6', platform: 'Mac 10.8' }
+// 		{ browserName: 'firefox', version: '30', platform: [ 'LINUX', /*'MAC 10.8', 'Windows 7'*/ ] },
+		{ browserName: 'chrome', version: '34', platform: [ 'LINUX'
+      /*'MAC 10.8', 'Windows 7'*/ ] }
+		//{ browserName: 'safari', version: '6', platform: 'MAC 10.8' }
 	],
 
 	// Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service
@@ -44,32 +46,37 @@ define({
 		port: 4446
 	},
 
-        useLoader: {
-//           // 'host-node': '../public/components/dojo/dojo',
-//           'host-browser': '../public/components/dojo/dojo'
-          'host-browser': 'public/components/dojo/dojo.js'
-        },
+    // The desired AMD loader to use when running unit tests (client.html/client.js). Omit to use the default Dojo
+    // loader
+    /*useLoader: {
+    //      'host-node': '../public/components/dojo/dojo',
+    //      'host-browser': '../public/components/dojo/dojo'
+    	'host-browser': 'public/components/dojo/dojo.js'
+    },*/
 
-	// Configuration options for the module loader; any AMD configuration options supported by the Dojo loader can be
-	// used here
+	// Configuration options for the module loader; any AMD configuration options supported by the specified AMD loader
+    // can be used here
 	loader: {
 		// Packages that should be registered with the loader in each testing environment
 		packages: [
-                        /*{ name: 'all', location: './all' },*/
+      /*{ name: 'all', location: './all' },*/
 			{ name: 'dojo', location: '/public/components/dojo' },
 			{ name: 'dojox', location: '/public/components/dojox' },
 			{ name: 'dijit', location: '/public/components/dijit' },
-                        { name: 'demos', location: '/public/demos' },
-                        //{ name: "functional", location: "tests/functional"}
-		]
-	},
+      { name: 'demos', location: '/public/demos' }
+		],
+		paths: { "dojox/calendar": "/public/components/dojo-calendar" }
+    // paths: { "superagent": "/public/components/superagent" }
+//    cacheBust: true
+  },
 
 	// Non-functional test suite(s) to run in each browser
-// 	suites: [ 'tests/all' ],
+ 	suites: [ 'tests/api_tests/express.tests' ], // 'tests/all',
 
 	// Functional test suite(s) to run in each browser once non-functional tests are completed
-	functionalSuites: [ 'tests/functional/todo' ], // Fails!
+	functionalSuites: [ 'tests/functional/todo' ],//, // Fails!
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
-	// excludeInstrumentation: /(?:tests|dojo|dojox|dijit)\//
+	excludeInstrumentation: /(?:tests|components|node_modules|dojo|dojox|dijit)\//
 });
+

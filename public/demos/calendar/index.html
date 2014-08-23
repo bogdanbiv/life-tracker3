@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Calendar Sample: Desktop</title>				
@@ -14,35 +13,8 @@
 			@import "../../components/dijit/themes/claro/claro.css";
 		</style>			
 	</head>
-	
 	<body class="claro">
-                <script>
-                    dojoConfig= {
-                        has: {
-                            "dojo-firebug": true
-                        },
-                        parseOnLoad: true,
-                        foo: "barxx",
-                        async: true,
-                        packages: [{
-                            name: "demos",
-                            location: "../../demos"
-                        }, {
-                            name: "dojox/calendar",
-                            location: "../../components/dojo-calendar"
-                        }],
-                        /*map: {
-                            dojox: {
-                                calendar: "../../components/dojo-calendar/Calendar"
-                            },
-                            'dojox/calendar': "../../components/dojo-calendar/Calendar",
-                            'demos/calendar': "../../demos"
-                        },*/
-                        paths: {
-                            "dojox/calendar": "../../components/dojo-calendar",
-                        },
-                    };
-                </script>
+        <script type="text/javascript" src="lifeTracker.config.js"></script>
 		<script type="text/javascript" src="../../components/dojo/dojo.js"></script>
 		<script type="text/javascript" src="src.js"></script>
 
@@ -71,12 +43,13 @@
 				<div id="hint" style="position:absolute;left:10px;height:15px;bottom:10px;right:10px;color:#999;overflow:auto"></div>
 			</div>		   
 		</div>																		
-                <script>
-                                require(["dijit/registry", "dojo/json", "dojo/_base/config",
-                                "dojo/domReady!"],
-                                    function(registry, JSON, config) {
-                                        console.log( "config: " + JSON.stringify(config, null, "\t") )
-                                });
-                </script>
+        <!--<script>
+                        require(["dijit/registry", "dojo/json", "dojo/_base/config",
+                        "dojo/domReady!"],
+                            function(registry, JSON, config) {
+                                console.log( "config: " + JSON.stringify(config, null, "\t") )
+                        });
+        </script>-->
 	</body>
+    <script>document.write('<' + 'script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </html>

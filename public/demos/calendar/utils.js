@@ -3,17 +3,21 @@ define([
 	"dojo/_base/lang",
 	"dojo/_base/fx",
 	"dojo/store/Memory", 
-    "dojo/store/Observable"],
-
-function(
+    "dojo/store/JsonRest",
+    "dojo/store/Observable",
+    "dojo/store/Cache"
+], function(
 	declare,
 	lang,
 	fx,
 	Memory,
-	Observable){
-	
+  JsonRest,
+	Observable,
+  Cache
+){
+
 	var utils = lang.getObject("demo.utils", true);
-	
+  console.log("utils: " + utils)
 	utils.initHints = function(node){
 		// Display different hint every 10 seconds 
 		var hints = [
@@ -52,7 +56,7 @@ function(
 		var someData = [];
 								
 		var startOfWeek = utils.getStartOfCurrentWeek(calendar);
-		
+		var memory, cache;
 		for (var id=0; id<modelBase.length; id++) {
 			var newObj = {
 				id: id,
@@ -73,8 +77,14 @@ function(
 		}
 		
 		this.id = id;
-		
-		return new Observable(new Memory({data: someData}));
+    calendarItemStore = new JsonRest({target:"/collections/calitems/", idProperty: '_id', syncMode: false});
+    /* calendarItemStore.get().then(function(bill){
+        // called once Bill was retrieved
+    });*/
+    memory = new Memory({data: someData, idProperty: '_id'});
+		cache = new Cache(calendarItemStore, memory);
+		var obsStore = new Observable(memory);
+		return new Observable(calendarItemStore);
 	};
 	
 	utils.configureInteractiveItemCreation= function(calendar){
@@ -119,3 +129,4 @@ function(
 					
 	return utils;
 });
+

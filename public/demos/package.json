@@ -1,0 +1,26 @@
+{
+  "name": "quantified-life",
+  "version":"0.0.1",
+  "directories": {
+    "lib": "."
+  },
+  "main":"main",
+  "dependencies": {
+    "dojo":"1.9.3"
+  },
+  "description": "Life tracking",
+  "licenses": [
+    {
+      "type": "AFLv2.1",
+      "url": "http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L43"
+    },
+    {
+      "type": "BSD",
+      "url": "http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13"
+    }
+  ],
+  "bugs": "http://bogdanbiv.org/",
+  "keywords": ["JavaScript", "Dojo", "life management"],
+  "homepage": "http://dojotoolkit.org/",
+  "dojoBuild": "life-tracker.profile.js"
+}

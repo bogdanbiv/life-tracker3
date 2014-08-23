@@ -1,3 +1,4 @@
+
 // This is a build profile for Dojo version of TodoMVC.
 dependencies = {
 	stripConsole: "normal",
