@@ -26,9 +26,24 @@ define({
 // 		{ browserName: 'internet explorer', version: '11', platform: 'Windows 8' },
 //		{ browserName: 'internet explorer', version: '10', platform: 'Windows 8' },
 // 		{ browserName: 'internet explorer', version: '9', platform: 'Windows 7' },
-// 		{ browserName: 'firefox', version: '30', platform: [ 'LINUX', /*'MAC 10.8', 'Windows 7'*/ ] },
-    { browserName: 'chrome', version: '34', platform: [ 'LINUX'
-      /*'MAC 10.8', 'Windows 7'*/ ] }
+    {
+      browserName: 'firefox',
+      version: '30',
+      platform: [ 'LINUX', /*'MAC 10.8', 'Windows 7'*/ ]
+    }, {
+      browserName: 'chrome',
+      version: '36',
+      platform: [ 'LINUX' /*'MAC 10.8', 'Windows 7'*/ ]
+    }, {
+      browserName: 'chrome',
+      version: '34',
+      platform: [ 'ANDROID 4.4' /*'MAC 10.8', 'Windows 7'*/ ],
+      deviceName: "Samsung Galaxy S4 Emulator",
+      'device-orientation': [
+        'portrait',
+        'landscape'
+      ]
+    }
     //{ browserName: 'safari', version: '6', platform: 'MAC 10.8' }
   ],
 
@@ -71,7 +86,7 @@ define({
   },
 
   // Non-functional test suite(s) to run in each browser
-  suites: [ 'tests/api_tests/express.tests' ], // 'tests/all',
+  suites: [ 'tests/api_tests/express.tests', './dojox_Calendar/module' ],
 
   // Functional test suite(s) to run in each browser once non-functional tests are completed
   functionalSuites: [ 'tests/functional/todo' ],//, // Fails!

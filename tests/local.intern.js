@@ -43,7 +43,7 @@ define({
 	// publishing this configuration file somewhere
 	webdriver: {
 		host: 'localhost',
-		port: 4446
+		port: 4444
 	},
 
     // The desired AMD loader to use when running unit tests (client.html/client.js). Omit to use the default Dojo
@@ -71,10 +71,17 @@ define({
   },
 
 	// Non-functional test suite(s) to run in each browser
- 	suites: [ 'tests/api_tests/express.tests' ], // 'tests/all',
+ 	suites: [
+    'tests/dummy/main.js'
+    /*'tests/api_tests/express.tests',
+    'tests/dojox_Calendar/module' */
+  ], // 'tests/all',
 
 	// Functional test suite(s) to run in each browser once non-functional tests are completed
-	functionalSuites: [ 'tests/functional/todo' ],//, // Fails!
+	functionalSuites: [
+    'tests/functional/dummy.js'
+  /*  'tests/functional/todo' */
+  ],//, // Fails!
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
 	excludeInstrumentation: /(?:tests|components|node_modules|dojo|dojox|dijit)\//
