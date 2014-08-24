@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - '0.10'
+env:
+  global:
+    - BROWSERSTACK_USERNAME: username
+    - BROWSERSTACK_ACCESS_KEY: access-key
+script: node_modules/.bin/intern-runner config=tests/remote.intern
+travis encrypt "BROWSERSTACK_USERNAME=bogdanbiv BROWSERSTACK_ACCESS_KEY=access-key"
