@@ -1,6 +1,6 @@
-﻿// Learn more about configuring this file at <https://github.com/theintern/intern/wiki/Configuring-Intern>.
+// Learn more about configuring this file at <https://github.com/theintern/intern/wiki/Configuring-Intern>.
 // These default settings work OK for most people. The options that *must* be changed below are the
-// packages, suites, excludeInstrumentation, and (if you want functional tests) functionalSuites.
+// packages, suites, excludeInstrumentation, and (if you want functional specs) functionalSuites.
 define({
 	// The port on which the instrumenting proxy will listen
 	proxyPort: 9000,
@@ -32,10 +32,10 @@ define({
 		//{ browserName: 'safari', version: '6', platform: 'MAC 10.8' }
 	],
 
-	// Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service
+	// Maximum number of simultaneous integration specs that should be executed on the remote WebDriver service
 	maxConcurrency: 3,
 
-	// Whether or not to start Sauce Connect before running tests
+	// Whether or not to start Sauce Connect before running specs
 	useSauceConnect: false,
 
 	// Connection information for the remote WebDriver service. If using Sauce Labs, keep your username and password
@@ -46,7 +46,7 @@ define({
 		port: 4444
 	},
 
-    // The desired AMD loader to use when running unit tests (client.html/client.js). Omit to use the default Dojo
+    // The desired AMD loader to use when running unit specs (client.html/client.js). Omit to use the default Dojo
     // loader
     /*useLoader: {
     //      'host-node': '../public/components/dojo/dojo',
@@ -72,15 +72,15 @@ define({
 
 	// Non-functional test suite(s) to run in each browser
  	suites: [
-    'tests/dummy/main.js'
-    /*'tests/api_tests/express.tests',
-    'tests/dojox_Calendar/module' */
-  ], // 'tests/all',
+    'specs/dummy/clientStoreUnit.js'
+    /*'specs/api_tests/express.specs',
+    'specs/dojox_Calendar/module' */
+  ], // 'specs/all',
 
-	// Functional test suite(s) to run in each browser once non-functional tests are completed
+	// Functional test suite(s) to run in each browser once non-functional specs are completed
 	functionalSuites: [
-    'tests/functional/dummy.js'
-  /*  'tests/functional/todo' */
+    'specs/functional/dummy.js'
+  /*  'specs/functional/todo' */
   ],//, // Fails!
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis

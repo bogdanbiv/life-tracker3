@@ -51,7 +51,7 @@ define([
       },
 
       'teardown': function() {
-        afterAll.resolve('tests finished');
+        afterAll.resolve('specs finished');
       },
 
       'beforeEach': function() {

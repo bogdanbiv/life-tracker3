@@ -17,7 +17,7 @@ define([
 ){
 
 	var utils = lang.getObject("demo.utils", true);
-  console.log("utils: " + utils)
+  console.log("utils7777777: " + utils)
 	utils.initHints = function(node){
 		// Display different hint every 10 seconds 
 		var hints = [

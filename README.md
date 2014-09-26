@@ -39,6 +39,8 @@ __GulpJS tasks__
 - file/reload watch server ?
 - Commit hooks for - CI/travis/browserify .travis.yml
 - deploy production
+-- WebDriver library: https://github.com/admc/wd
+
 
 **DOJO BUILD**
 http://dojotoolkit.org/reference-guide/1.10/build/buildSystem.html#build-buildsystem

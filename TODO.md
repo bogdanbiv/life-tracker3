@@ -1,4 +1,4 @@
-﻿Gulp
+Gulp
 KarmaJS / runner
 Webserver
 source

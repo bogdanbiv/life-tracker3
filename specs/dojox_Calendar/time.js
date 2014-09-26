@@ -1,4 +1,4 @@
-﻿define(['intern!object', 'intern/chai!assert', "dojo/date", "dojo/date/locale", "dojox/date/hebrew/Date", "dojox/date/hebrew", "dojox/date/hebrew/locale", "dojox/calendar/time"],
+define(['intern!object', 'intern/chai!assert', "dojo/date", "dojo/date/locale", "dojox/date/hebrew/Date", "dojox/date/hebrew", "dojox/date/hebrew/locale", "dojox/calendar/time"],
         function(registerSuite, assert, date, dateLocale, hDate, h, hLocale, time){
 
         registerSuite({

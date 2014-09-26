@@ -1,4 +1,4 @@
-﻿// define([
+// define([
 //     'intern!object',
 //     'intern/chai!assert',
 //     'app/hello'
