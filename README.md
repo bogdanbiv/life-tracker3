@@ -39,7 +39,7 @@ __GulpJS tasks__
 - file/reload watch server ?
 - Commit hooks for - CI/travis/browserify .travis.yml
 - deploy production
--- WebDriver library: https://github.com/admc/wd
+- WebDriver library: https://github.com/admc/wd
 
 
 **DOJO BUILD**
@@ -101,6 +101,3 @@ grey = todo
 /// hashColor = plan
 solidColor = actual
 \\\ hashColor = Delegated
-
-# Intern config is borked again:
-best candidate: node node_modules/.bin/intern-runner config=tests/intern reporters=console

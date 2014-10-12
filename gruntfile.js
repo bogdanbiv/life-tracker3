@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-dojo');
 //  grunt.loadNpmTasks('dojo');
-  grunt.loadNpmTasks('intern');
+  grunt.loadNpmTasks('grunt-kommando');
 
   grunt.initConfig({
     dojo: {
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
       }
     },
 
-    intern: {
+    /*intern: {
       client: {
         options: {
           // for other available options, see:
@@ -76,21 +76,28 @@ module.exports = function (grunt) {
           config: 'tests/local.intern'
         }
       },
-      /*clientSuiteGet: {
+      *//*clientSuiteGet: {
        // an example of specifying a suite name
        options: {
        config: 'tests/local.intern',
        suites: ['tests/lib/get']
        }
-       },*/
+       },*//*
       runner: {
         options: {
           config:  'tests/local.intern',
           runType: 'runner'
         }
       }
+    }*/
+    kommando: {
+      configSeleniumWebdriverMocha: {
+        browsers: ['chrome'],
+        options: {},
+        tests: ['test/mytest.js']
+      }
     }
   });
 
-  grunt.registerTask('test', ['intern:runner']);
+  grunt.registerTask('test', ['kommando:configSeleniumWebdriverMocha']);
 };
