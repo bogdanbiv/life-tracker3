@@ -5,7 +5,8 @@ define([
 	"dojo/store/Memory", 
     "dojo/store/JsonRest",
     "dojo/store/Observable",
-    "dojo/store/Cache"
+    "dojo/store/Cache",
+		"dojo/_base/Deferred"
 ], function(
 	declare,
 	lang,
@@ -13,11 +14,14 @@ define([
 	Memory,
   JsonRest,
 	Observable,
-  Cache
+  Cache,
+	Deferred
 ){
 
 	var utils = lang.getObject("demo.utils", true);
-  console.log("utils7777777: " + utils)
+  // console.log("utils7777777: " + Object.keys(utils) + "; type: " + typeof(utils));
+	utils.id = 1;
+
 	utils.initHints = function(node){
 		// Display different hint every 10 seconds 
 		var hints = [
@@ -76,21 +80,41 @@ define([
 			someData.push(newObj);
 		}
 		
-		this.id = id;
-    calendarItemStore = new JsonRest({target:"/collections/calitems/", idProperty: '_id', syncMode: false});
+		//this.id = id;
+
+		var ExtJsonStore = declare(JsonRest, {
+			/*add: function(object, options) {
+				console.log("ExtJSON: " + Object.keys(this));
+				var tempId = options && options.temporaryId;
+				console.log("addItemtemporaryId: " + item["temporaryId"] + "; " + item["id"] + "; " + item["_id"]);
+				var def = new Deferred();
+				Deferred.when(this.inherited(arguments), function(item){
+					item.temporaryId = tempId;
+					console.log("addItemtemporaryId: " + item["temporaryId"] + "; " + item["id"] + "; " + item["_id"]);
+					def.resolve(item);
+				});
+				return def;
+			}*/
+		});
+
+		console.log("JsonStore: " + Object.keys(JsonRest) + "; type: " + typeof(JsonRest));
+
+    var calendarItemStore = new ExtJsonStore({
+			target:"/collections/calitems/", idProperty: 'id', syncMode: false
+		});
     /* calendarItemStore.get().then(function(bill){
         // called once Bill was retrieved
     });*/
-    memory = new Memory({data: someData, idProperty: '_id'});
+    memory = new Memory({data: someData});
 		cache = new Cache(calendarItemStore, memory);
 		var obsStore = new Observable(memory);
 		return new Observable(calendarItemStore);
 	};
 	
-	utils.configureInteractiveItemCreation= function(calendar){
+	utils.configureInteractiveItemCreation = function(calendar) {
 		// Enable creation of event interactively by ctrl clicking grid.
-		var createItem = function(view, d, e){
-		
+		var createItem = function(view, d, e) {
+			console.log("createItem 106");
 			// create item by maintaining control key
 			if(!e.ctrlKey || e.shiftKey || e.altKey){
 				return null;
@@ -110,7 +134,7 @@ define([
 			}
 			
 			var item = {
-				id: utils.id,
+				id: "__tempID__" + utils.id,
 				summary: "New event " + utils.id,
 				startTime: start,
 				endTime: end,
@@ -118,8 +142,12 @@ define([
 				allDay: view.viewKind == "matrix"
 			};
 			
-			utils.id++;	
-			
+			utils.id++;
+
+			// console.log("AddFn: " + calendar.store.add);
+			// console.log("item: " + Object.keys(calendar.store.add(item)));
+			console.log("item: " + Object.keys(item));
+			console.log("item: " + item["id"]);
 			return item;							
 		};
 		
