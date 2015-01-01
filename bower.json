@@ -20,7 +20,8 @@
     "bower_components",
     "public/components",
     "test",
-    "tests"
+    "tests",
+    "specs"
   ],
   "dependencies": {
     "dijit": "~1.9.3",

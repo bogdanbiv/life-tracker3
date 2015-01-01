@@ -1,7 +1,16 @@
 module.exports = function (grunt) {
+/*
   grunt.loadNpmTasks('grunt-dojo');
 //  grunt.loadNpmTasks('dojo');
   grunt.loadNpmTasks('grunt-kommando');
+  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-express');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+*/
+
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  var path = require('path');
 
   grunt.initConfig({
     dojo: {
@@ -67,7 +76,28 @@ module.exports = function (grunt) {
         baseLayerThreshold: 8
       }
     },
-
+    express: {
+      options: {
+        port: 9000,
+        hostname: '*'
+      },
+      test: {
+        server: path.resolve('./api.js'),
+        bases: ['public'],
+        livereload: true,
+        serverreload: true,
+        // if you do not define a port it will start your server at port 3000
+      }
+    },
+    watch: {
+      express: {
+        files:  [ '**/*.js' ],
+        tasks:  [ 'express:test' ],
+        options: {
+          spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
+        }
+      }
+    },
     /*intern: {
       client: {
         options: {
@@ -96,8 +126,13 @@ module.exports = function (grunt) {
         options: {},
         tests: ['test/mytest.js']
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      }
     }
   });
-
+  grunt.registerTask('msr', ['express:test', 'express-keepalive']);
   grunt.registerTask('test', ['kommando:configSeleniumWebdriverMocha']);
 };

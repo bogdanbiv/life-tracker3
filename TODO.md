@@ -1,9 +1,13 @@
-Gulp
+Gulp -- Deffered
 KarmaJS / runner
 Webserver
+    node $PJ/api.js
+    http://localhost:3000/demos/calendar/demo.html
+    http://localhost:3000/collections/calitems
 source
 livereload
-mocha/chai/chaiAsPromised
+mocha/chai/
+    *chaiAsPromised
 superagent
 Webdriver? Leadfoot/WD/?
 coverage (istanbul)

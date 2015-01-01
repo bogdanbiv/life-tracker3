@@ -11,6 +11,17 @@ Object.keys(window.__karma__.files).forEach(function(file) {
     allTestFiles.push(pathToModule(file));
   }
 });
+console.log('CHAI::: ' + sinon);
+//console.log('chaiAsPromised::: ' + chaiAsPromised);
+stepper = function(o) {
+  var s = "";
+  for (k in o) {
+    s += k + ", ";
+  }
+  return s;
+};
+
+console.log('window::: ' + stepper(sinon));
 
 
 var dojoConfig = {

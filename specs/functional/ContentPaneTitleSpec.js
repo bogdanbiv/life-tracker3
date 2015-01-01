@@ -31,5 +31,5 @@ describe('Calendar page', function() {
       .get('http://angularjs.org/')
       // element method chaining
       .elementById('the-basics');
-  })
+  });
 });

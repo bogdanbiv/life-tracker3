@@ -13,12 +13,14 @@ define([
   'require',
   'dojo/request',
   'dojo/Deferred',
-  'intern/dojo/node!mongoose',
-  'intern/dojo/node!util',
+/*  'intern/dojo/node!mongoose',
+  'intern/dojo/node!util',*/
   'dojo/date/stamp'
 ], function (/*registerSuite, chai, chaiAsPromised, assert,*/
              require, request, Deferred, mongoose, util, stamp) {
-  chai.use(chaiAsPromised);
+  //chai.use(chaiAsPromised);
+  debugger;
+  var progressSpy = sinon.spy();
   var CalItem;
   var testCalItem;
   var beforeEachDfd;
@@ -28,6 +30,8 @@ define([
   // 'express rest api server'
   describe('express rest api server', function() {
       before(function() {
+        assert.equal(2 + 2, 4, "This had better be true");
+
         afterAll = new Deferred();
         mongoose.connect('mongodb://localhost:27017/collections/calitems');
         afterAll.then(function(val) {

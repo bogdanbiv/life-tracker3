@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'dojo', 'chai' ],
+    frameworks: ['mocha', 'dojo', 'chai', /*'chai-as-promised',*/ 'sinon', /*'sinon-chai' */],
 
 
     // list of files / patterns to load in the browser
@@ -19,7 +19,7 @@ module.exports = function(config) {
       {pattern: './public/components/**/*', included: false, served: true},
       {pattern: './public/demos/**/*', included: false, served: true},
       {pattern: './specs/mainUnit.js', included: true, served: true},
-      {pattern: './specs/**/*Unit.js', included: false, served: true},
+      {pattern: './specs/**/*Unit.js', included: false, served: true}
 
     ],
 
@@ -83,13 +83,15 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     plugins: [
       'karma-mocha',
+      'karma-sinon',
       'karma-chai',
       'karma-chai-plugins',
       'karma-dojo',
+      'karma-requirejs',
       //'karma-jasmine',
       'karma-chrome-launcher',
       // uncomment for firefox launcher
